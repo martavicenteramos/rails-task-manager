@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1><%= @task.title %></h1>
+  <%= link_to "Edit this task", edit_task_path(@task), class:"btn btn-secondary h-50"%>
+</div>
+<div class="alert alert-secondary p-4" role="alert">
+  <%= @task.details %>
+</div>
+<div class="d-flex align-items-center">
+  <% if @task.completed %>
+    <span>This task is marked as done.</span>
+  <% else %>
+    <span>You haven't done this task!</span>
+  <% end %>
+</div>
+<div class="mt-5 border-top pt-3">
+  <span><%= link_to "Go back", tasks_path(@task) %></span>
+</div>

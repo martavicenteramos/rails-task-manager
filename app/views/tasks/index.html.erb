@@ -1,0 +1,18 @@
+<h1>Your tasks</h1>
+  <div>
+    <% @tasks.each do |task| %>
+      <div class="d-flex border rounded align-items-center p-3 m-2">
+        <% if task.completed %>
+          <input class= "mx-2 toggle" data-url="<%= toggle_path(task) %>" type="checkbox" checked>
+        <% else %>
+          <input class= "mx-2 toggle" data-url="<%= toggle_path(task) %>" type="checkbox">
+        <% end %>
+        <span><%= link_to task.title, task_path(task) %></span>
+        <span><%= link_to "🗑", task_path(task), method: :delete%></span>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-5 border-top pt-3">
+    <%= link_to "+ Add a new task", new_task_path(@tasks) %>
+  </div>
+

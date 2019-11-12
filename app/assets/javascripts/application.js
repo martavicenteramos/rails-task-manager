@@ -14,3 +14,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", function(){
+  const toggles = document.querySelectorAll(".toggle");
+
+  toggles.forEach(function(toggle) {
+    toggle.addEventListener("click", (event) => {
+      const url = event.target.dataset["url"];
+      Rails.ajax({ url: url, type: "PATCH" });
+    });
+  });
+});
